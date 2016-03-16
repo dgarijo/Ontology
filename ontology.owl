@@ -10,13 +10,13 @@
 
 <https://github.com/LinkedEarth/ontology#> rdf:type owl:Ontology ;
                                            
+                                           dcterms:license "http://creativecommons.org/licenses/by-nc-sa/2.0/" ;
+                                           
                                            owl:versionInfo "0.0.1"@en ;
                                            
-                                           vann:preferredNamespacePrefix "lipd" ;
+                                           vann:preferredNamespaceUri "https://github.com/LinkedEarth/ontology#" ;
                                            
-                                           dcterms:license <http://creativecommons.org/licenses/by-nc-sa/2.0/> ;
-                                           
-                                           vann:preferredNamespaceUri <https://github.com/LinkedEarth/ontology#> .
+                                           vann:preferredNamespacePrefix "le" .
 
 
 #################################################################
