@@ -11,6 +11,8 @@
 <https://github.com/LinkedEarth/ontology#> rdf:type owl:Ontology ;
                                            
                                            dcterms:license "http://creativecommons.org/licenses/by-nc-sa/2.0/" ;
+										   
+										   dcterms:title "The Linked Earth Ontology";
                                            
                                            owl:versionInfo "0.0.1"@en ;
                                            
