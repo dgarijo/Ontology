@@ -56,27 +56,29 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 
 
-###  https://github.com/LinkedEarth/ontology#calibratedAgainst
-
-:calibratedAgainst rdf:type owl:ObjectProperty ;
-                   
-                   rdfs:comment "Were theData calibrated against a reference curve? For instance: radiocarbon"@en ;
-                   
-                   rdfs:range :CalibrationCurve ;
-                   
-                   rdfs:domain :Variable .
-
-
-
 ###  https://github.com/LinkedEarth/ontology#calibratedAs
 
 :calibratedAs rdf:type owl:ObjectProperty ;
               
-              rdfs:comment "How was the data calibrated to represent climate?"@en ;
+              rdfs:comment "How was the variable calibrated to represent climate or chronology?"@en ;
               
               rdfs:range :Calibration ;
               
               rdfs:domain :Variable .
+
+
+
+###  https://github.com/LinkedEarth/ontology#calibrationReferences
+
+:calibrationReferences rdf:type owl:ObjectProperty ;
+                       
+                       rdfs:comment "The publication that describes the calibration. The string should follow the model set in the publication class"@en ;
+                       
+                       rdfs:subPropertyOf dcterms:references ;
+                       
+                       rdfs:domain :Calibration ;
+                       
+                       rdfs:range :Publication .
 
 
 
@@ -218,9 +220,25 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 
 
+###  https://github.com/LinkedEarth/ontology#interpretationReferences
+
+:interpretationReferences rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:comment "Describes the basis by which the proxy variable is interpreted in terms of climate. "@en ;
+                          
+                          rdfs:subPropertyOf dcterms:references ;
+                          
+                          rdfs:domain :ClimateInterpretation ;
+                          
+                          rdfs:range :Publication .
+
+
+
 ###  https://github.com/LinkedEarth/ontology#interpretedAs
 
 :interpretedAs rdf:type owl:ObjectProperty ;
+               
+               rdfs:comment "how is the variable interpreted?"@en ;
                
                rdfs:range :ClimateInterpretation ;
                
@@ -251,6 +269,20 @@ dcterms:references rdf:type owl:ObjectProperty .
             rdfs:range :Archive ;
             
             rdfs:domain :Observation .
+
+
+
+###  https://github.com/LinkedEarth/ontology#modelReferences
+
+:modelReferences rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:comment "The publication that describes the model. "@en ;
+                 
+                 rdfs:subPropertyOf dcterms:references ;
+                 
+                 rdfs:domain :Model ;
+                 
+                 rdfs:range :Publication .
 
 
 
@@ -339,18 +371,6 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 
 
-###  https://github.com/LinkedEarth/ontology#basis
-
-:basis rdf:type owl:DatatypeProperty ;
-       
-       rdfs:comment "Describes the basis by which the proxy variable is interpreted in terms of climate. Quotes from publications work well for this. The literal is a string"@en ;
-       
-       rdfs:range xsd:string ;
-       
-       rdfs:domain :ClimateInterpretation .
-
-
-
 ###  https://github.com/LinkedEarth/ontology#datasetVersion
 
 :datasetVersion rdf:type owl:DatatypeProperty ;
@@ -387,7 +407,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :detail rdf:type owl:DatatypeProperty ;
         
-        rdfs:comment "Answers the \"of what\" question for climateVariableName. The literal is a string"@en ;
+        rdfs:comment "Answers the \"of what\" question for a Variable. "@en ;
         
         rdfs:range xsd:string ;
         
@@ -395,23 +415,11 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 
 
-###  https://github.com/LinkedEarth/ontology#direction
-
-:direction rdf:type owl:DatatypeProperty ;
-           
-           rdfs:comment "Describes whether the interpreted environmental variable increases (positive) or decreases (negative) as the paleoDataVariableValue increases. The literal is a string"@en ;
-           
-           rdfs:range xsd:string ;
-           
-           rdfs:domain :ClimateInterpretation .
-
-
-
 ###  https://github.com/LinkedEarth/ontology#equation
 
 :equation rdf:type owl:DatatypeProperty ;
           
-          rdfs:comment "The mathematical equation used to calibrate the paleodata to environmental variable. The literal is a mathematical formula"@en ;
+          rdfs:comment "The mathematical statement used to describe the model."@en ;
           
           rdfs:range xsd:string ;
           
@@ -500,6 +508,18 @@ dcterms:title rdf:type owl:DatatypeProperty .
                                       :Variable
                                     )
                       ] .
+
+
+
+###  https://github.com/LinkedEarth/ontology#interpretationDirection
+
+:interpretationDirection rdf:type owl:DatatypeProperty ;
+                         
+                         rdfs:comment "Describes whether the interpreted environmental variable increases (positive) or decreases (negative) as the paleoDataVariableValue increases. The literal is a string , either \"positive\" or \"negative\""@en ;
+                         
+                         rdfs:range xsd:string ;
+                         
+                         rdfs:domain :ClimateInterpretation .
 
 
 
@@ -624,6 +644,8 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Archive rdf:type owl:Class ;
          
+         rdfs:isDefinedBy "http://www.sciencedirect.com/science/article/pii/S0277379113002011" ;
+         
          rdfs:comment "The medium in which the response of a sensor to environmental forcing is recorded (e.g., marine sediments, ice core, lake sediments, speleothems). sensu Evans et al. (2013)"@en .
 
 
@@ -650,6 +672,8 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :CalibrationCurve rdf:type owl:Class ;
                   
+                  rdfs:subClassOf :Calibration ;
+                  
                   rdfs:comment "Metadata about how the variables were calibrated against a curve to infer age information"@en .
 
 
@@ -660,7 +684,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
            
            rdfs:subClassOf :Data ;
            
-           rdfs:comment "The set of measurements used to infer chronological information"@en .
+           rdfs:comment "The Data pertaining to chronological information"@en .
 
 
 
@@ -670,7 +694,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
                 
                 rdfs:subClassOf :DataTable ;
                 
-                rdfs:comment "Table containing the ChronData"@en .
+                rdfs:comment "DataTable containing the Chronology Variables"@en .
 
 
 
@@ -678,7 +702,9 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :ChronProxy rdf:type owl:Class ;
             
-            rdfs:subClassOf :Proxy .
+            rdfs:subClassOf :Proxy ;
+            
+            rdfs:comment "The data and metadata associated with how the chronology information was obtained."@en .
 
 
 
@@ -686,7 +712,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :ClimateInterpretation rdf:type owl:Class ;
                        
-                       rdfs:comment "A suite of metadata that describe how a variable is interpreted to reflect climate variability"@en .
+                       rdfs:comment "A suite of metadata that describe how a variable is interpreted to reflect past environmental variability or chronological information"@en .
 
 
 
@@ -704,7 +730,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Data rdf:type owl:Class ;
       
-      rdfs:comment "The set of measurements included in a dataset"@en .
+      rdfs:comment "An aggregation of DataTables and supporting information regarging the paleoenvironmental and/or chronological interpretation "@en .
 
 
 
@@ -712,7 +738,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :DataTable rdf:type owl:Class ;
            
-           rdfs:comment "A set of Data organized in columns"@en .
+           rdfs:comment "A set of Variables organized in columns"@en .
 
 
 
@@ -722,7 +748,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
          
          rdfs:label "Dataset"@en ;
          
-         rdfs:comment "A collection of related information, including - but not limited to - geographical, chronological, and paleoenvironmental data"@en .
+         rdfs:comment "A structured collection of related information, including - but not limited to - geographical, chronological, and paleoenvironmental data"@en .
 
 
 
@@ -730,7 +756,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Funding rdf:type owl:Class ;
          
-         rdfs:comment "The source(s) of funding for the study"@en .
+         rdfs:comment "A source of funding for the creation of the Dataset"@en .
 
 
 
@@ -760,7 +786,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Instrument rdf:type owl:Class ;
             
-            rdfs:comment "A tool or implement used in scientific work"@en .
+            rdfs:comment "A tool or implement used to produce observations"@en .
 
 
 
@@ -786,7 +812,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Model rdf:type owl:Class ;
        
-       rdfs:comment "To be defined"@en .
+       rdfs:comment "A formalization of the process by which the information is encoded in an Archive, Sensor and Observation"@en .
 
 
 
@@ -804,7 +830,9 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Observation rdf:type owl:Class ;
              
-             rdfs:comment "The measurements made on the archives, whether chemical (e.g., Mg/Ca, d18O, TEX86, Sr/Ca....), physical (e.g. density, layer thickness) or biological (e.g. species abundance). Evans et al. (2013)"@en .
+             rdfs:comment "The measurements made on the archives, whether chemical (e.g., Mg/Ca, d18O, TEX86, Sr/Ca....), physical (e.g. density, layer thickness) or biological (e.g. species abundance). Evans et al. (2013)"@en ;
+             
+             rdfs:isDefinedBy "http://www.sciencedirect.com/science/article/pii/S0277379113002011" .
 
 
 
@@ -834,7 +862,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
            
            rdfs:subClassOf :Data ;
            
-           rdfs:comment "The set of measurements used to infer past environmental variability"@en .
+           rdfs:comment "The Data pertaining to past environmental variability"@en .
 
 
 
@@ -844,7 +872,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
                 
                 rdfs:subClassOf :DataTable ;
                 
-                rdfs:comment "Table containig the PaleoData"@en .
+                rdfs:comment "DataTable containig PaleoData Variables"@en .
 
 
 
@@ -868,6 +896,8 @@ dcterms:title rdf:type owl:DatatypeProperty .
                   
                   rdfs:subClassOf :Model ;
                   
+                  rdfs:isDefinedBy "http://www.sciencedirect.com/science/article/pii/S0277379113002011" ;
+                  
                   rdfs:comment "In the Evans et al. (2013) framework, this is the combination of sensor, archive and observation models . \"A generalized proxy system model encapuslates a simplified representation of prior physical, chemical, biological, and/or geological understanding of the ways in which environmental variation ultimately results in the observations used to retrieve paleoclimatic information.\""@en .
 
 
@@ -876,8 +906,8 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Publication rdf:type owl:Class ;
              
-             rdfs:label "Publication"@en ,
-                        "[To revise if this class can be imported from another ontology]. For example: schema:Article (http://schema.org/Article)"@en .
+             rdfs:label "A document that serves as reference for a Dataset or its components"@en ,
+                        "Publication"@en .
 
 
 
@@ -885,7 +915,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Resolution rdf:type owl:Class ;
             
-            rdfs:comment "the resolution associated with the archive (may or may not be related to sampling). Value with units"@en .
+            rdfs:comment "The resolution associated with the archive (may or may not be related to sampling). Value with units"@en .
 
 
 
@@ -893,7 +923,9 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Sensor rdf:type owl:Class ;
         
-        rdfs:comment "The sensor comprises physical, chemical and/or biological components that react to environmental conditions (e.g, foraminifera, coral polyps, cave, catchment basin). sensu Evans et al. (2013)"@en .
+        rdfs:comment "The sensor comprises physical, chemical and/or biological components that react to environmental conditions (e.g, foraminifera, coral polyps, cave, catchment basin). sensu Evans et al. (2013)"@en ;
+        
+        rdfs:isDefinedBy "http://www.sciencedirect.com/science/article/pii/S0277379113002011" .
 
 
 
