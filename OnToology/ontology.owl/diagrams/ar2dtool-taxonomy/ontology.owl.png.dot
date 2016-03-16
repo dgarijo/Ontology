@@ -1,0 +1,22 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "lipd:Sensor" "lipd:Publication" "lipd:ChronProxy" "lipd:DataTable" "lipd:Model" "lipd:Data" "lipd:PaleoDataTable" "lipd:OrganicSensor" "lipd:SensorModel" "lipd:InferredVariable" "lipd:ChronData" "lipd:NonPeerReviewedPublication" "lipd:ArchiveModel" "lipd:MeasuredVariable" "lipd:Proxy" "lipd:ClimateProxy" "lipd:ProxySystemModel" "lipd:ObservationModel" "lipd:InorganicSensor" "lipd:ChronDataTable" "lipd:PaleoData" "lipd:Variable" "lipd:PeerReviewedPublication" ; /*classes style*/
+	"lipd:PeerReviewedPublication" -> "lipd:Publication" [ label = "rdfs:subClassOf" ];
+	"lipd:MeasuredVariable" -> "lipd:Variable" [ label = "rdfs:subClassOf" ];
+	"lipd:ClimateProxy" -> "lipd:Proxy" [ label = "rdfs:subClassOf" ];
+	"lipd:InferredVariable" -> "lipd:Variable" [ label = "rdfs:subClassOf" ];
+	"lipd:PaleoData" -> "lipd:Data" [ label = "rdfs:subClassOf" ];
+	"lipd:ArchiveModel" -> "lipd:Model" [ label = "rdfs:subClassOf" ];
+	"lipd:SensorModel" -> "lipd:Model" [ label = "rdfs:subClassOf" ];
+	"lipd:ChronProxy" -> "lipd:Proxy" [ label = "rdfs:subClassOf" ];
+	"lipd:ChronDataTable" -> "lipd:DataTable" [ label = "rdfs:subClassOf" ];
+	"lipd:PaleoDataTable" -> "lipd:DataTable" [ label = "rdfs:subClassOf" ];
+	"lipd:InorganicSensor" -> "lipd:Sensor" [ label = "rdfs:subClassOf" ];
+	"lipd:NonPeerReviewedPublication" -> "lipd:Publication" [ label = "rdfs:subClassOf" ];
+	"lipd:ProxySystemModel" -> "lipd:Model" [ label = "rdfs:subClassOf" ];
+	"lipd:ObservationModel" -> "lipd:Model" [ label = "rdfs:subClassOf" ];
+	"lipd:OrganicSensor" -> "lipd:Sensor" [ label = "rdfs:subClassOf" ];
+	"lipd:ChronData" -> "lipd:Data" [ label = "rdfs:subClassOf" ];
+
+}
