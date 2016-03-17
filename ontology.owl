@@ -11,8 +11,6 @@
 <https://github.com/LinkedEarth/ontology#> rdf:type owl:Ontology ;
                                            
                                            dcterms:license "http://creativecommons.org/licenses/by-nc-sa/2.0/" ;
-										   
-										   dcterms:title "The Linked Earth Ontology";
                                            
                                            owl:versionInfo "0.0.1"@en ;
                                            
@@ -908,8 +906,9 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Publication rdf:type owl:Class ;
              
-             rdfs:label "A document that serves as reference for a Dataset or its components"@en ,
-                        "Publication"@en .
+             rdfs:label "Publication"@en ;
+             
+             rdfs:comment "A document that serves as reference for a Dataset or its components"@en .
 
 
 
@@ -982,7 +981,8 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 <https://github.com/LinkedEarth/ontology#> rdf:type owl:NamedIndividual ;
                                            
-                                           dcterms:title "The Linked Earth Ontology"@en ;
+                                           dcterms:title "The Linked Earth Ontology" ,
+                                                         "The Linked Earth Ontology"@en ;
                                            
                                            dcterms:contributor <http://w3id.org/people/dgarijo> ,
                                                                <http://www.isi.edu/~gil/> ;
