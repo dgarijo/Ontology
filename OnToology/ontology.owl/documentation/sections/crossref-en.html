@@ -4,10 +4,6 @@ This section provides details for each class and property defined by [Ontology N
    <h2>Classes</h2>
    <ul class="hlist">
       <li>
-         <a href="#Publication"
-            title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
-      </li>
-      <li>
          <a href="#Archive" title="https://github.com/LinkedEarth/ontology#Archive">
             <span>archive</span>
          </a>
@@ -162,6 +158,10 @@ This section provides details for each class and property defined by [Ontology N
          </a>
       </li>
       <li>
+         <a href="#Publication"
+            title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
+      </li>
+      <li>
          <a href="#Resolution"
             title="https://github.com/LinkedEarth/ontology#Resolution">
             <span>resolution</span>
@@ -190,45 +190,6 @@ This section provides details for each class and property defined by [Ontology N
          </a>
       </li>
    </ul>
-   <div class="entity" id="Publication">
-      <h3>A document that serves as reference for a Dataset or its components<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://github.com/LinkedEarth/ontology#Publication</p>
-      <dl class="description">
-         <dt>has sub-classes</dt>
-         <dd>
-            <a href="#NonPeerReviewedPublication"
-               title="https://github.com/LinkedEarth/ontology#NonPeerReviewedPublication">non peer reviewed publication</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#PeerReviewedPublication"
-               title="https://github.com/LinkedEarth/ontology#PeerReviewedPublication">peer reviewed publication</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in domain of</dt>
-         <dd>
-            <a href="#issue" title="https://github.com/LinkedEarth/ontology#issue">issue</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#pages" title="https://github.com/LinkedEarth/ontology#pages">pages</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#publicationYear"
-               title="https://github.com/LinkedEarth/ontology#publicationYear">publication year</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#volume" title="https://github.com/LinkedEarth/ontology#volume">volume</a>
-            <sup class="type-dp" title="data property">dp</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#calibrationReferences"
-               title="https://github.com/LinkedEarth/ontology#calibrationReferences">calibration references</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#interpretationReferences"
-               title="https://github.com/LinkedEarth/ontology#interpretationReferences">interpretation references</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#modelReferences"
-               title="https://github.com/LinkedEarth/ontology#modelReferences">model references</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#publishedIn"
-               title="https://github.com/LinkedEarth/ontology#publishedIn">published in</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
    <div class="entity" id="Archive">
       <h3>archive<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -706,7 +667,7 @@ This section provides details for each class and property defined by [Ontology N
          <dt>has super-classes</dt>
          <dd>
             <a href="#Publication"
-               title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+               title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is disjoint with</dt>
@@ -833,7 +794,7 @@ This section provides details for each class and property defined by [Ontology N
          <dt>has super-classes</dt>
          <dd>
             <a href="#Publication"
-               title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+               title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is disjoint with</dt>
@@ -873,6 +834,48 @@ This section provides details for each class and property defined by [Ontology N
          <dd>
             <a href="#modeledBy"
                title="https://github.com/LinkedEarth/ontology#modeledBy">modeled by</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="Publication">
+      <h3>Publication<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/LinkedEarth/ontology#Publication</p>
+      <div class="comment">
+         <p>A document that serves as reference for a Dataset or its components</p>
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#NonPeerReviewedPublication"
+               title="https://github.com/LinkedEarth/ontology#NonPeerReviewedPublication">non peer reviewed publication</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#PeerReviewedPublication"
+               title="https://github.com/LinkedEarth/ontology#PeerReviewedPublication">peer reviewed publication</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#issue" title="https://github.com/LinkedEarth/ontology#issue">issue</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#pages" title="https://github.com/LinkedEarth/ontology#pages">pages</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#publicationYear"
+               title="https://github.com/LinkedEarth/ontology#publicationYear">publication year</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#volume" title="https://github.com/LinkedEarth/ontology#volume">volume</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#calibrationReferences"
+               title="https://github.com/LinkedEarth/ontology#calibrationReferences">calibration references</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#interpretationReferences"
+               title="https://github.com/LinkedEarth/ontology#interpretationReferences">interpretation references</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#modelReferences"
+               title="https://github.com/LinkedEarth/ontology#modelReferences">model references</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#publishedIn"
+               title="https://github.com/LinkedEarth/ontology#publishedIn">published in</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -1229,7 +1232,7 @@ This section provides details for each class and property defined by [Ontology N
             <dt>has range</dt>
             <dd>
                <a href="#Publication"
-                  title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+                  title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -1550,7 +1553,7 @@ This section provides details for each class and property defined by [Ontology N
             <dt>has range</dt>
             <dd>
                <a href="#Publication"
-                  title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+                  title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -1664,7 +1667,7 @@ This section provides details for each class and property defined by [Ontology N
             <dt>has range</dt>
             <dd>
                <a href="#Publication"
-                  title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+                  title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -1762,7 +1765,7 @@ This section provides details for each class and property defined by [Ontology N
             <dt>has range</dt>
             <dd>
                <a href="#Publication"
-                  title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+                  title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2231,7 +2234,7 @@ This section provides details for each class and property defined by [Ontology N
             <dt>has domain</dt>
             <dd>
                <a href="#Publication"
-                  title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+                  title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -2327,7 +2330,7 @@ This section provides details for each class and property defined by [Ontology N
             <dt>has domain</dt>
             <dd>
                <a href="#Publication"
-                  title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+                  title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -2357,7 +2360,7 @@ This section provides details for each class and property defined by [Ontology N
             <dt>has domain</dt>
             <dd>
                <a href="#Publication"
-                  title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+                  title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2423,7 +2426,7 @@ This section provides details for each class and property defined by [Ontology N
             <dt>has domain</dt>
             <dd>
                <a href="#Publication"
-                  title="https://github.com/LinkedEarth/ontology#Publication">A document that serves as reference for a Dataset or its components</a>
+                  title="https://github.com/LinkedEarth/ontology#Publication">Publication</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
