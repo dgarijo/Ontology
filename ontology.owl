@@ -44,6 +44,14 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 
 
+###  http://xmlns.com/foaf/0.1/mbox
+
+<http://xmlns.com/foaf/0.1/mbox> rdf:type owl:ObjectProperty ;
+                                 
+                                 rdfs:isDefinedBy "http://xmlns.com/foaf/0.1/" .
+
+
+
 ###  https://github.com/LinkedEarth/ontology#archivedIn
 
 :archivedIn rdf:type owl:ObjectProperty ;
@@ -56,15 +64,27 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 
 
-###  https://github.com/LinkedEarth/ontology#calibratedAs
+###  https://github.com/LinkedEarth/ontology#basedOn
 
-:calibratedAs rdf:type owl:ObjectProperty ;
-              
-              rdfs:comment "How was the variable calibrated to represent climate or chronology?"@en ;
-              
-              rdfs:range :Calibration ;
-              
-              rdfs:domain :Variable .
+:basedOn rdf:type owl:ObjectProperty ;
+         
+         rdfs:comment "How are the data obtained?"@en ;
+         
+         rdfs:domain :Data ;
+         
+         rdfs:range :Proxy .
+
+
+
+###  https://github.com/LinkedEarth/ontology#calibratedFrom
+
+:calibratedFrom rdf:type owl:ObjectProperty ;
+                
+                rdfs:comment "How was the variable calibrated to represent climate or chronology?"@en ;
+                
+                rdfs:range :CalibrationModel ;
+                
+                rdfs:domain :InferredVariable .
 
 
 
@@ -76,7 +96,7 @@ dcterms:references rdf:type owl:ObjectProperty .
                        
                        rdfs:subPropertyOf dcterms:references ;
                        
-                       rdfs:domain :Calibration ;
+                       rdfs:domain :CalibrationModel ;
                        
                        rdfs:range :Publication .
 
@@ -124,7 +144,7 @@ dcterms:references rdf:type owl:ObjectProperty .
               
               rdfs:domain [ rdf:type owl:Class ;
                             owl:unionOf ( :Data
-                                          :Observation
+                                          :MeasuredVariable
                                         )
                           ] .
 
@@ -139,6 +159,18 @@ dcterms:references rdf:type owl:ObjectProperty .
           rdfs:domain :Dataset ;
           
           rdfs:range :Funding .
+
+
+
+###  https://github.com/LinkedEarth/ontology#hasCode
+
+:hasCode rdf:type owl:ObjectProperty ;
+         
+         rdfs:comment "The mathematical equation that describes the Model. The literal is a mathematical formula"@en ;
+         
+         rdfs:domain :Model ;
+         
+         rdfs:range :SoftwareCode .
 
 
 
@@ -176,9 +208,10 @@ dcterms:references rdf:type owl:ObjectProperty .
                 rdfs:range :Uncertainty ;
                 
                 rdfs:domain [ rdf:type owl:Class ;
-                              owl:unionOf ( :Calibration
+                              owl:unionOf ( :CalibrationModel
                                             :Instrument
                                             :Model
+                                            :Variable
                                           )
                             ] .
 
@@ -212,11 +245,11 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :inferredFrom rdf:type owl:ObjectProperty ;
               
-              rdfs:comment "How are the data obtained?"@en ;
+              rdfs:comment "From which measured variable is the current inferred variable obtained?"@en ;
               
-              rdfs:domain :Data ;
+              rdfs:domain :InferredVariable ;
               
-              rdfs:range :Proxy .
+              rdfs:range :MeasuredVariable .
 
 
 
@@ -254,7 +287,7 @@ dcterms:references rdf:type owl:ObjectProperty .
             
             rdfs:range :Instrument ;
             
-            rdfs:domain :Observation .
+            rdfs:domain :MeasuredVariable .
 
 
 
@@ -268,7 +301,7 @@ dcterms:references rdf:type owl:ObjectProperty .
             
             rdfs:range :Archive ;
             
-            rdfs:domain :Observation .
+            rdfs:domain :MeasuredVariable .
 
 
 
@@ -423,7 +456,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
           
           rdfs:range xsd:string ;
           
-          rdfs:domain :Calibration .
+          rdfs:domain :CalibrationModel .
 
 
 
@@ -471,13 +504,23 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 
 
-###  https://github.com/LinkedEarth/ontology#hasEquation
+###  https://github.com/LinkedEarth/ontology#hasDOI
 
-:hasEquation rdf:type owl:DatatypeProperty ;
-             
-             rdfs:comment "The mathematical equation that describes the Model. The literal is a mathematical formula"@en ;
-             
-             rdfs:domain :Model .
+:hasDOI rdf:type owl:DatatypeProperty ;
+        
+        rdfs:comment "As DOI for a given resource"@en ;
+        
+        rdfs:subPropertyOf :hasLink .
+
+
+
+###  https://github.com/LinkedEarth/ontology#hasLink
+
+:hasLink rdf:type owl:DatatypeProperty ;
+         
+         rdfs:comment "A downloadable link of a resource"@en ;
+         
+         rdfs:range rdfs:Literal .
 
 
 
@@ -501,7 +544,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :hasValue rdf:type owl:DatatypeProperty ;
           
-          rdfs:comment "A column of values for the variable. The literal can be in the form of a column of values (for instance d18O PaleoObservations) or a column of strings (for instance different paleoArchiveNames)"@en ;
+          rdfs:comment "A column of values for the variable. The literal can be in the form of a vector of values (for instance d18O PaleoObservations),  a vector of strings (for instance different paleoArchiveNames),  a matrix or both"@en ;
           
           rdfs:domain [ rdf:type owl:Class ;
                         owl:unionOf ( :Uncertainty
@@ -535,16 +578,6 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 
 
-###  https://github.com/LinkedEarth/ontology#link
-
-:link rdf:type owl:DatatypeProperty ;
-      
-      rdfs:comment "A downloadable link of a resource"@en ;
-      
-      rdfs:range rdfs:Literal .
-
-
-
 ###  https://github.com/LinkedEarth/ontology#method
 
 :method rdf:type owl:DatatypeProperty ;
@@ -555,6 +588,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
         
         rdfs:domain [ rdf:type owl:Class ;
                       owl:unionOf ( :Archive
+                                    :Model
                                     :Observation
                                   )
                     ] .
@@ -615,7 +649,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
           
           rdfs:comment "The standard against which the observations are reported (for instance, VSMOW or VPDB)"@en ;
           
-          rdfs:domain :Observation .
+          rdfs:domain :MeasuredVariable .
 
 
 
@@ -640,6 +674,14 @@ dcterms:title rdf:type owl:DatatypeProperty .
 #################################################################
 
 
+###  http://xmlns.com/foaf/0.1/Person
+
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class ;
+                                   
+                                   rdfs:isDefinedBy "http://xmlns.com/foaf/0.1/"@en .
+
+
+
 ###  https://github.com/LinkedEarth/ontology#Archive
 
 :Archive rdf:type owl:Class ;
@@ -660,21 +702,13 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 
 
-###  https://github.com/LinkedEarth/ontology#Calibration
+###  https://github.com/LinkedEarth/ontology#CalibrationModel
 
-:Calibration rdf:type owl:Class ;
-             
-             rdfs:comment "Metadata about how the variable was calibrated to refflect an environmental variable"@en .
-
-
-
-###  https://github.com/LinkedEarth/ontology#CalibrationCurve
-
-:CalibrationCurve rdf:type owl:Class ;
+:CalibrationModel rdf:type owl:Class ;
                   
-                  rdfs:subClassOf :Calibration ;
+                  rdfs:subClassOf :Model ;
                   
-                  rdfs:comment "Metadata about how the variables were calibrated against a curve to infer age information"@en .
+                  rdfs:comment "Metadata about how the variable was calibrated to refflect an environmental variable"@en .
 
 
 
@@ -712,7 +746,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :ClimateInterpretation rdf:type owl:Class ;
                        
-                       rdfs:comment "A suite of metadata that describe how a variable is interpreted to reflect past environmental variability or chronological information"@en .
+                       rdfs:comment "A suite of metadata that describe how a variable is interpreted to reflect past environmental variability"@en .
 
 
 
@@ -812,7 +846,7 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 :Model rdf:type owl:Class ;
        
-       rdfs:comment "A formalization of the process by which the information is encoded in an Archive, Sensor and Observation"@en .
+       rdfs:comment "A formalization of the process by which the information is encoded in an Archive, Sensor and Observation [This definition should be redefined]"@en .
 
 
 
@@ -829,6 +863,8 @@ dcterms:title rdf:type owl:DatatypeProperty .
 ###  https://github.com/LinkedEarth/ontology#Observation
 
 :Observation rdf:type owl:Class ;
+             
+             rdfs:subClassOf :MeasuredVariable ;
              
              rdfs:comment "The measurements made on the archives, whether chemical (e.g., Mg/Ca, d18O, TEX86, Sr/Ca....), physical (e.g. density, layer thickness) or biological (e.g. species abundance). Evans et al. (2013)"@en ;
              
@@ -940,11 +976,29 @@ dcterms:title rdf:type owl:DatatypeProperty .
 
 
 
+###  https://github.com/LinkedEarth/ontology#SoftwareCode
+
+:SoftwareCode rdf:type owl:Class ;
+              
+              rdfs:comment "A script that describes the model, in any programming language (e.g., Excel, Matlab, Python, R)"@en .
+
+
+
 ###  https://github.com/LinkedEarth/ontology#Uncertainty
 
 :Uncertainty rdf:type owl:Class ;
              
              rdfs:comment "A state of incomplete knowledge that can result from a lack of information or from disagreement about what is known or  even knowable. Uncertainty may come from many sources, from imprecision in the data to ambigously defined concepts or terminology, or uncertain projections of human bahavior. Uncertainty can be represented by quantitative measures (e.g., probability density function) or by qualitative statement (e.g., reflecting the judgement of a team of experts). Definition from IPCC AR5"@en .
+
+
+
+###  https://github.com/LinkedEarth/ontology#UncertaintyModel
+
+:UncertaintyModel rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :Model ;
+                  
+                  rdfs:comment "A formalization of the way the uncertainty is accounted for"@en .
 
 
 
