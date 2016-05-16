@@ -9,12 +9,22 @@
 
 <https://w3id.org/linkedEarth/ontology#> a owl:Ontology ;
 	dcterms:license "http://creativecommons.org/licenses/by-nc-sa/2.0/" ;
-	dcterms:contributor <http://w3id.org/people/dgarijo> , <http://www.isi.edu/~gil/> ;
-	dcterms:creator <http://earth.usc.edu/~khider/> , <http://orcid.org/0000-0001-5920-4751> , <http://www.cefns.nau.edu/~npm4/> ;
-	dcterms:title "The Linked Earth Ontology" , "The Linked Earth Ontology"@en; 
-	owl:versionInfo "0.0.3"@en ;
+	vann:preferredNamespaceUri "https://w3id.org/linkedEarth/ontology#" ;
 	vann:preferredNamespacePrefix "le" ;
-	vann:preferredNamespaceUri "https://w3id.org/linkedEarth/ontology#" .
+	owl:versionInfo "0.0.3"@en .
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2000/01/rdf-schema#Literal
+
+rdfs:Literal owl:equivalentClass xsd:string .
+# 
 # 
 # 
 # #################################################################
@@ -205,7 +215,7 @@ _:genid9 a rdf:List ;
 
 :interpretationReferences a owl:ObjectProperty ;
 	rdfs:subPropertyOf dcterms:references ;
-	rdfs:domain :ClimateInterpretation ;
+	rdfs:domain :Interpretation ;
 	rdfs:range :Publication ;
 	rdfs:comment "Describes the basis by which the proxy variable is interpreted in terms of climate. "@en .
 # 
@@ -213,7 +223,7 @@ _:genid9 a rdf:List ;
 
 :interpretedAs a owl:ObjectProperty ;
 	rdfs:domain :Variable ;
-	rdfs:range :ClimateInterpretation ;
+	rdfs:range :Interpretation ;
 	rdfs:comment "how is the variable interpreted?"@en .
 # 
 # https://w3id.org/linkedEarth/ontology#measuredBy
@@ -316,9 +326,9 @@ dcterms:title a owl:DatatypeProperty .
 # https://w3id.org/linkedEarth/ontology#detail
 
 :detail a owl:DatatypeProperty ;
-	rdfs:domain :ClimateInterpretation ;
+	rdfs:domain :Interpretation ;
 	rdfs:range xsd:string ;
-	rdfs:comment "Answers the \"of what\" question for a Variable. "@en .
+	rdfs:comment "Answers the \"of what\" question for a Variable."@en .
 # 
 # https://w3id.org/linkedEarth/ontology#equation
 
@@ -379,6 +389,13 @@ _:genid14 a rdf:List ;
 	owl:propertyDisjointWith :hasValue ;
 	rdfs:comment "Indicates how the missing values are flagged in a dataset" .
 # 
+# https://w3id.org/linkedEarth/ontology#hasRank
+
+:hasRank a owl:DatatypeProperty ;
+	rdfs:domain :Interpretation ;
+	rdfs:range xsd:int ;
+	rdfs:comment "Describes the importance of the ClimateInterpretation. For instance, d18Ocalcite is influenced by both temperature and d18Osw. If temperature is the dominant influence, then its rank is 1." .
+# 
 # https://w3id.org/linkedEarth/ontology#hasUnits
 
 :hasUnits a owl:DatatypeProperty ;
@@ -421,15 +438,22 @@ _:genid22 a rdf:List ;
 	rdf:first :Variable ;
 	rdf:rest rdf:nil .
 
-:hasValue rdfs:range xsd:float ;
+:hasValue rdfs:range xsd:float , xsd:string ;
 	rdfs:comment "A column of values for the variable. The literal can be in the form of a vector of values (for instance d18O PaleoObservations),  a vector of strings (for instance different paleoArchiveNames),  a matrix or both"@en .
 # 
 # https://w3id.org/linkedEarth/ontology#interpretationDirection
 
 :interpretationDirection a owl:DatatypeProperty ;
-	rdfs:domain :ClimateInterpretation ;
+	rdfs:domain :Interpretation ;
 	rdfs:range xsd:string ;
 	rdfs:comment "Describes whether the interpreted environmental variable increases (positive) or decreases (negative) as the paleoDataVariableValue increases. The literal is a string , either \"positive\" or \"negative\""@en .
+# 
+# https://w3id.org/linkedEarth/ontology#isLocal
+
+:isLocal a owl:DatatypeProperty ;
+	rdfs:domain :Interpretation ;
+	rdfs:range xsd:string ;
+	rdfs:comment "Whether the influence on the MeasuredVariable (and therefore the Interpretation) is local or far-field. The literal is a string." .
 # 
 # https://w3id.org/linkedEarth/ontology#issue
 
@@ -464,7 +488,7 @@ _:genid25 a rdf:List ;
 # https://w3id.org/linkedEarth/ontology#notes
 
 :notes a owl:DatatypeProperty ;
-	rdfs:domain :Variable ;
+	rdfs:domain :Dataset , :Model , :Variable ;
 	rdfs:range xsd:string ;
 	rdfs:comment "Notes regarding the cells in the DataTable"@en .
 # 
@@ -489,12 +513,32 @@ _:genid25 a rdf:List ;
 	rdfs:domain :Publication ;
 	rdfs:comment "[Remove?]The year the publication was published. The literal is a numeric value in the format yyy"@en .
 # 
+# https://w3id.org/linkedEarth/ontology#relevantQuote
+
+:relevantQuote a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :description ;
+	rdfs:comment "Relevant summary or preferably quotation from the referenced Publication" .
+# 
 # https://w3id.org/linkedEarth/ontology#seasonality
 
 :seasonality a owl:DatatypeProperty ;
-	rdfs:domain :Sensor ;
+	rdfs:domain :Interpretation , :Sensor ;
 	rdfs:range xsd:string ;
 	rdfs:comment "fluctuating or restricted according to the season or time of year"@en .
+# 
+# https://w3id.org/linkedEarth/ontology#sensorGenus
+
+:sensorGenus a owl:DatatypeProperty ;
+	rdfs:domain :OrganicSensor ;
+	rdfs:range xsd:string ;
+	rdfs:comment "The Genus of the sensor" .
+# 
+# https://w3id.org/linkedEarth/ontology#sensorSpecies
+
+:sensorSpecies a owl:DatatypeProperty ;
+	rdfs:domain :OrganicSensor ;
+	rdfs:range xsd:string ;
+	rdfs:comment "The species of the sensor" .
 # 
 # https://w3id.org/linkedEarth/ontology#standard
 
@@ -502,12 +546,26 @@ _:genid25 a rdf:List ;
 	rdfs:domain :MeasuredVariable ;
 	rdfs:comment "The standard against which the observations are reported (for instance, VSMOW or VPDB)"@en .
 # 
+# https://w3id.org/linkedEarth/ontology#uncertaintyLevel
+
+:uncertaintyLevel a owl:DatatypeProperty ;
+	rdfs:domain :Uncertainty ;
+	rdfs:range xsd:float ;
+	rdfs:comment "Quantile or number of standard deviations along a probability distribution of a Variable." .
+# 
 # https://w3id.org/linkedEarth/ontology#volume
 
 :volume a owl:DatatypeProperty ;
 	rdfs:domain :Publication ;
 	rdfs:range xsd:string ;
 	rdfs:comment "The volume number in which the publication appeared."@en .
+# 
+# https://w3id.org/linkedEarth/ontology#warnings
+
+:warnings a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :notes ;
+	rdfs:domain :Dataset , :Variable ;
+	rdfs:range rdfs:Literal .
 # 
 # 
 # 
@@ -563,7 +621,8 @@ _:genid25 a rdf:List ;
 # https://w3id.org/linkedEarth/ontology#ClimateInterpretation
 
 :ClimateInterpretation a owl:Class ;
-	rdfs:comment "A suite of metadata that describe how a variable is interpreted to reflect past environmental variability"@en .
+	rdfs:subClassOf :Interpretation ;
+	rdfs:comment "A suite of metadata that describe how a variable is interpreted to reflect past environmental variability" .
 # 
 # https://w3id.org/linkedEarth/ontology#ClimateProxy
 
@@ -610,6 +669,23 @@ _:genid25 a rdf:List ;
 
 :Instrument a owl:Class ;
 	rdfs:comment "A tool or implement used to produce MeasuredVariables"@en .
+# 
+# https://w3id.org/linkedEarth/ontology#IntegrationTime
+
+:IntegrationTime a owl:Class ;
+	rdfs:subClassOf :ArchiveModel , :SensorModel ;
+	rdfs:comment "The integration time of the Archive or the Sensor" .
+# 
+# https://w3id.org/linkedEarth/ontology#Interpretation
+
+:Interpretation a owl:Class ;
+	rdfs:comment "A suite of metadata that describe how a variable is interpreted to reflect past variability, including environmental variability"@en .
+# 
+# https://w3id.org/linkedEarth/ontology#IsotopeInterpretation
+
+:IsotopeInterpretation a owl:Class ;
+	rdfs:subClassOf :Interpretation ;
+	rdfs:comment "A suite of metadata that describe how a MeasuredVariable with instance Isotope is interpreted to reflect past variability, including environmental variability" .
 # 
 # https://w3id.org/linkedEarth/ontology#Location
 
@@ -729,6 +805,41 @@ _:genid25 a rdf:List ;
 
 :Variable a owl:Class ;
 	rdfs:comment "Quantities which can be measured or inferred independently in an experiment"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://earth.usc.edu/~khider/
 
+<http://earth.usc.edu/~khider/> a owl:NamedIndividual .
+# 
+# http://orcid.org/0000-0001-5920-4751
+
+<http://orcid.org/0000-0001-5920-4751> a owl:NamedIndividual .
+# 
+# http://w3id.org/people/dgarijo
+
+<http://w3id.org/people/dgarijo> a owl:NamedIndividual .
+# 
+# http://www.cefns.nau.edu/~npm4/
+
+<http://www.cefns.nau.edu/~npm4/> a owl:NamedIndividual .
+# 
+# http://www.isi.edu/~gil/
+
+<http://www.isi.edu/~gil/> a owl:NamedIndividual .
+# 
+# https://w3id.org/linkedEarth/ontology#
+
+<https://w3id.org/linkedEarth/ontology#> a owl:NamedIndividual ;
+	dcterms:contributor <http://w3id.org/people/dgarijo> , <http://www.isi.edu/~gil/> ;
+	dcterms:creator <http://earth.usc.edu/~khider/> , <http://orcid.org/0000-0001-5920-4751> , <http://www.cefns.nau.edu/~npm4/> ;
+	dcterms:title "The Linked Earth Ontology" , "The Linked Earth Ontology"@en .
 # 
 # Generated by the OWL API (version 4.2.1.20160306-0033) https://github.com/owlcs/owlapi
