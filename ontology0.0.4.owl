@@ -10,7 +10,7 @@
 
 <https://w3id.org/linkedEarth/ontology#> rdf:type owl:Ontology ;
                                          
-                                         owl:versionInfo "0.0.5"@en ;
+                                         owl:versionInfo "0.0.4"@en ;
                                          
                                          dcterms:license "http://creativecommons.org/licenses/by-nc-sa/2.0/" ;
                                          
