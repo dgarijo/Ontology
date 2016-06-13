@@ -49,6 +49,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
             
             rdfs:comment "How was the climate or chronological information encoded into the Archive?"@en ;
             
+            rdfs:isDefinedBy "archivedIn"@en ;
+            
             rdfs:range :Archive ;
             
             rdfs:domain :Proxy .
@@ -81,6 +83,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
          
          rdfs:comment "How are the data obtained?"@en ;
          
+         rdfs:isDefinedBy "basedOn"@en ;
+         
          rdfs:domain :Data ;
          
          rdfs:range :Proxy .
@@ -93,6 +97,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
                 
                 rdfs:comment "How was the variable calibrated to represent climate or chronology?"@en ;
                 
+                rdfs:isDefinedBy "calibratedWith"@en ;
+                
                 rdfs:range :CalibrationModel ;
                 
                 rdfs:domain :InferredVariable .
@@ -102,6 +108,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 ###  http://linked.earth/ontology#calibrationReferences
 
 :calibrationReferences rdf:type owl:ObjectProperty ;
+                       
+                       rdfs:label "calibrationReferences"@en ;
                        
                        rdfs:comment "The publication that describes the calibration. The string should follow the model set in the publication class"@en ;
                        
@@ -118,6 +126,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 :collectedFrom rdf:type owl:ObjectProperty ;
                
                rdfs:comment "Where was the data in the dataset collected from? Generally, this is the site where the archive was collected. "@en ;
+               
+               rdfs:isDefinedBy "collectedFrom"@en ;
                
                rdfs:domain :Dataset ;
                
@@ -145,7 +155,9 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :foundInTable rdf:type owl:ObjectProperty ;
               
-              rdfs:comment "Where is the Data found?" ;
+              rdfs:comment "Property that indicated the table where the described data can be found"@en ;
+              
+              rdfs:isDefinedBy "foundInTable"@en ;
               
               rdfs:range :DataTable ;
               
@@ -161,7 +173,9 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :fundedBy rdf:type owl:ObjectProperty ;
           
-          rdfs:comment "How was the original study funded? Shall we replace \"study\" with \"dataset\"?"@en ;
+          rdfs:label "fundedBy"@en ;
+          
+          rdfs:comment "Property that indicated the funding which made the dataset possible"@en ;
           
           rdfs:domain :Dataset ;
           
@@ -173,7 +187,11 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :hasCode rdf:type owl:ObjectProperty ;
          
+         rdfs:label "hasCode"@en ;
+         
          rdfs:comment "What is the mathematical formulation that describes the Model?"@en ;
+         
+         rdfs:isDefinedBy "hasCode"@en ;
          
          rdfs:domain :Model ;
          
@@ -199,6 +217,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :hasPart rdf:type owl:ObjectProperty ;
          
+         rdfs:label "hasPart"@en ;
+         
          rdfs:comment "What are the components of the ProxySystemModel?" ;
          
          rdfs:domain :ProxySystemModel ;
@@ -216,6 +236,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :hasResolution rdf:type owl:ObjectProperty ;
                
+               rdfs:label "hasResolution"@en ;
+               
                rdfs:comment "What is the Resolution of the Archive?" ;
                
                rdfs:domain :Archive ;
@@ -227,6 +249,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 ###  http://linked.earth/ontology#hasUncertainty
 
 :hasUncertainty rdf:type owl:ObjectProperty ;
+                
+                rdfs:label "hasUncertainty"@en ;
                 
                 rdfs:comment "What is the Uncertainty associated with the Observations, Model, and Calibration?"@en ;
                 
@@ -242,9 +266,27 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 
 
+###  http://linked.earth/ontology#includesChronData
+
+:includesChronData rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:label "includesChronData"@en ;
+                   
+                   rdfs:comment "Pointer to the chron data included in the dataset"@en ;
+                   
+                   rdfs:range :ChronData ;
+                   
+                   rdfs:domain :Dataset ;
+                   
+                   rdfs:subPropertyOf :includesData .
+
+
+
 ###  http://linked.earth/ontology#includesData
 
 :includesData rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "includesData"@en ;
               
               rdfs:comment "What are the paleoenvironmental and chronological Data included in the Dataset?"@en ;
               
@@ -254,9 +296,27 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 
 
+###  http://linked.earth/ontology#includesPaleoData
+
+:includesPaleoData rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:label "includesPaleoData"@en ;
+                   
+                   rdfs:comment "The paleo data included as part of a dataset"@en ;
+                   
+                   rdfs:domain :Dataset ;
+                   
+                   rdfs:range :PaleoData ;
+                   
+                   rdfs:subPropertyOf :includesData .
+
+
+
 ###  http://linked.earth/ontology#includesVariable
 
 :includesVariable rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:label "includesVariable"@en ;
                   
                   rdfs:comment "What are the Variables included in the DataTable?"@en ;
                   
@@ -270,6 +330,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :inferredFrom rdf:type owl:ObjectProperty ;
               
+              rdfs:label "inferredFrom"@en ;
+              
               rdfs:comment "From which measured variable is the current inferred variable obtained?"@en ;
               
               rdfs:domain :InferredVariable ;
@@ -281,6 +343,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 ###  http://linked.earth/ontology#interpretationReferences
 
 :interpretationReferences rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:label "interpretationReferences"@en ;
                           
                           rdfs:comment "Describes the basis by which the proxy variable is interpreted in terms of climate. "@en ;
                           
@@ -296,6 +360,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :interpretedAs rdf:type owl:ObjectProperty ;
                
+               rdfs:label "interpretedAs"@en ;
+               
                rdfs:comment "how is the variable interpreted?"@en ;
                
                rdfs:range :Interpretation ;
@@ -308,6 +374,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :measuredBy rdf:type owl:ObjectProperty ;
             
+            rdfs:label "measuredBy"@en ;
+            
             rdfs:comment "What Instrument was used to obtain the MeasuredVariables and Observations?"@en ;
             
             rdfs:range :Instrument ;
@@ -319,6 +387,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 ###  http://linked.earth/ontology#measuredOn
 
 :measuredOn rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "measuredOn"@en ;
             
             rdfs:comment "On what Archive were the Observations measured on?"@en ;
             
@@ -334,6 +404,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :modelReferences rdf:type owl:ObjectProperty ;
                  
+                 rdfs:label "modelReferences"@en ;
+                 
                  rdfs:comment "The publication that describes the model. "@en ;
                  
                  rdfs:domain :Model ;
@@ -348,6 +420,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :modeledBy rdf:type owl:ObjectProperty ;
            
+           rdfs:label "modeledBy"@en ;
+           
            rdfs:comment "How was the process modeled?"@en ;
            
            rdfs:domain :Proxy ;
@@ -359,6 +433,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 ###  http://linked.earth/ontology#observedAs
 
 :observedAs rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "observedAs"@en ;
             
             rdfs:comment "What Observations were made?"@en ;
             
@@ -372,15 +448,21 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :principalInvestigator rdf:type owl:ObjectProperty ;
                        
+                       rdfs:label "principalInvestigator"@en ;
+                       
                        rdfs:comment "Who is the PrincipalInvestigator of the Funding grant?"@en ;
                        
-                       rdfs:domain :Funding .
+                       rdfs:domain :Funding ;
+                       
+                       rdfs:range :Person .
 
 
 
 ###  http://linked.earth/ontology#publishedIn
 
 :publishedIn rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "publishedIn"@en ;
              
              rdfs:comment "Where was the Dataset published? Property that relates a dataset to the publication where it was published."@en ;
              
@@ -393,6 +475,8 @@ rdfs:Literal owl:equivalentClass xsd:string .
 ###  http://linked.earth/ontology#sensingWith
 
 :sensingWith rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "sensingWith"@en ;
              
              rdfs:comment "How does the proxy system senses the environment?"@en ;
              
@@ -420,7 +504,21 @@ dcterms:creator rdf:type owl:ObjectProperty ;
 
 ###  http://purl.org/dc/terms/references
 
-dcterms:references rdf:type owl:ObjectProperty .
+dcterms:references rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:isDefinedBy "http://purl.org/dc/terms/references"@en .
+
+
+
+###  http://www.opengis.net/ont/geosparql#hasGeometry
+
+<http://www.opengis.net/ont/geosparql#hasGeometry> rdf:type owl:ObjectProperty ;
+                                                   
+                                                   rdfs:domain <http://www.opengis.net/ont/geosparql#Feature> ;
+                                                   
+                                                   rdfs:range <http://www.opengis.net/ont/geosparql#Geometry> ;
+                                                   
+                                                   rdfs:isDefinedBy <http://www.opengis.net/spec/geosparql/1.0> .
 
 
 
@@ -431,6 +529,20 @@ dcterms:references rdf:type owl:ObjectProperty .
 #    Data properties
 #
 #################################################################
+
+
+###  http://linked.earth/ontology#book
+
+:book rdf:type owl:DatatypeProperty ;
+      
+      rdfs:label "book"@en ;
+      
+      rdfs:comment "Book in which the publication was published"@en ;
+      
+      rdfs:domain :Publication ;
+      
+      rdfs:range xsd:string .
+
 
 
 ###  http://linked.earth/ontology#citation
@@ -471,6 +583,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 :datasetVersion rdf:type owl:DatatypeProperty ,
                          owl:FunctionalProperty ;
                 
+                rdfs:label "datasetVersion"@en ;
+                
                 rdfs:comment "The version of the dataset. It should follow the x.y.z notation where x refers to changes in metadata and data following a publication (for instance, the creation of a new age model using a different code), y refers to changes to the data following a publication (for instance, adding data further back in time without changing the model underlying the interpretation), and z refers to changes not associated with a publication (for instance, typos)."@en ;
                 
                 rdfs:domain :Dataset .
@@ -481,13 +595,19 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :description rdf:type owl:DatatypeProperty ;
              
-             rdfs:comment "The description of a resource. Could use dc:description. This property may be used to provide further details on instrument descriptions, uncertainty description,etc."@en .
+             rdfs:label "description"@en ;
+             
+             rdfs:comment "The description of a resource. This property may be used to provide further details on instrument descriptions, uncertainty description,etc."@en ;
+             
+             rdfs:range xsd:string .
 
 
 
 ###  http://linked.earth/ontology#detail
 
 :detail rdf:type owl:DatatypeProperty ;
+        
+        rdfs:label "detail"@en ;
         
         rdfs:comment "Answers the \"of what\" question for a Variable."@en ;
         
@@ -515,6 +635,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :equation rdf:type owl:DatatypeProperty ;
           
+          rdfs:label "equation"@en ;
+          
           rdfs:comment "The mathematical statement used to describe the model."@en ;
           
           rdfs:domain :Model ;
@@ -527,6 +649,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :fundingAgency rdf:type owl:DatatypeProperty ,
                         owl:FunctionalProperty ;
+               
+               rdfs:label "fundingAgency"@en ;
                
                rdfs:comment "The agency that funded the development of the Dataset"@en ;
                
@@ -541,6 +665,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 :fundingCountry rdf:type owl:DatatypeProperty ,
                          owl:FunctionalProperty ;
                 
+                rdfs:label "fundingCountry"@en ;
+                
                 rdfs:comment "Country which awarded the funding for the dataset"@en ;
                 
                 rdfs:domain :Funding .
@@ -550,6 +676,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 ###  http://linked.earth/ontology#grantNumber
 
 :grantNumber rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "grantNumber"@en ;
              
              rdfs:comment "The grant number associated with the development of the Dataset?"@en ;
              
@@ -566,9 +694,9 @@ dcterms:references rdf:type owl:ObjectProperty .
         
         rdfs:label "hasDOI"@en ;
         
-        rdfs:comment "As DOI for a given resource"@en ;
+        rdfs:comment "As Digital Object Identifier for a given resource. For example: \"oi:10.1191/095968301673881493\""@en ;
         
-        rdfs:subPropertyOf :hasLink ;
+        rdfs:subPropertyOf dcterms:identifier ;
         
         rdfs:range xsd:string ;
         
@@ -610,9 +738,43 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 
 
+###  http://linked.earth/ontology#hasISBN
+
+:hasISBN rdf:type owl:DatatypeProperty ;
+         
+         rdfs:label "hasISBN"@en ;
+         
+         rdfs:comment "Identifier used commonly to refer to publications."@en ;
+         
+         rdfs:domain :Publication ;
+         
+         rdfs:subPropertyOf dcterms:identifier ;
+         
+         rdfs:range xsd:string .
+
+
+
+###  http://linked.earth/ontology#hasISSN
+
+:hasISSN rdf:type owl:DatatypeProperty ;
+         
+         rdfs:label "hasISSN"@en ;
+         
+         rdfs:comment "8-digit code used to udentify publications"@en ;
+         
+         rdfs:domain :Publication ;
+         
+         rdfs:subPropertyOf dcterms:identifier ;
+         
+         rdfs:range xsd:string .
+
+
+
 ###  http://linked.earth/ontology#hasLink
 
 :hasLink rdf:type owl:DatatypeProperty ;
+         
+         rdfs:label "hasLink"@en ;
          
          rdfs:comment "A downloadable link of a resource"@en ;
          
@@ -625,7 +787,9 @@ dcterms:references rdf:type owl:ObjectProperty .
 :hasMissingValue rdf:type owl:DatatypeProperty ,
                           owl:FunctionalProperty ;
                  
-                 rdfs:comment "Indicates how the missing values are flagged in a dataset" ;
+                 rdfs:label "hasMissingValue"@en ;
+                 
+                 rdfs:comment "Indicates how the missing values are flagged in a dataset"@en ;
                  
                  owl:propertyDisjointWith :hasValue ;
                  
@@ -644,6 +808,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 :hasRank rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          
+         rdfs:label "hasRank"@en ;
+         
          rdfs:comment "Describes the importance of the ClimateInterpretation. For instance, d18Ocalcite is influenced by both temperature and d18Osw. If temperature is the dominant influence, then its rank is 1." ;
          
          rdfs:domain :Interpretation ;
@@ -656,6 +822,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :hasUnits rdf:type owl:DatatypeProperty ,
                    owl:FunctionalProperty ;
+          
+          rdfs:label "hasUnits"@en ;
           
           rdfs:comment "units in which a resource is measured The resource can be a Variable, an Observation, a Resolution, or an Uncertainty"@en ;
           
@@ -675,6 +843,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :hasValue rdf:type owl:DatatypeProperty ;
           
+          rdfs:label "hasValue"@en ;
+          
           rdfs:comment "A column of values for the variable. The literal can be in the form of a vector of values (for instance d18O PaleoObservations),  a vector of strings (for instance different paleoArchiveNames),  a matrix or both"@en ;
           
           rdfs:range xsd:string ;
@@ -692,6 +862,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 :interpretationDirection rdf:type owl:DatatypeProperty ,
                                   owl:FunctionalProperty ;
                          
+                         rdfs:label "interpretationDirection"@en ;
+                         
                          rdfs:comment "Describes whether the interpreted environmental variable increases (positive) or decreases (negative) as the paleoDataVariableValue increases. The literal is a string , either \"positive\" or \"negative\""@en ;
                          
                          rdfs:domain :Interpretation ;
@@ -705,6 +877,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 :isLocal rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          
+         rdfs:label "isLocal"@en ;
+         
          rdfs:comment "Whether the influence on the MeasuredVariable (and therefore the Interpretation) is local or far-field. The literal is a string." ;
          
          rdfs:domain :Interpretation ;
@@ -717,6 +891,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :issue rdf:type owl:DatatypeProperty ,
                 owl:FunctionalProperty ;
+       
+       rdfs:label "issue"@en ;
        
        rdfs:comment "The issue number for the publication"@en ;
        
@@ -744,6 +920,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :method rdf:type owl:DatatypeProperty ;
         
+        rdfs:label "method"@en ;
+        
         rdfs:comment "Method used to obtain the information from the resource"@en ;
         
         rdfs:range xsd:string ;
@@ -757,9 +935,25 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 
 
+###  http://linked.earth/ontology#name
+
+:name rdf:type owl:DatatypeProperty ;
+      
+      rdfs:label "name"@en ;
+      
+      rdfs:comment "Name of the described resource"@en ;
+      
+      rdfs:subPropertyOf <http://schema.org/name> ;
+      
+      rdfs:range xsd:string .
+
+
+
 ###  http://linked.earth/ontology#notes
 
 :notes rdf:type owl:DatatypeProperty ;
+       
+       rdfs:label "notes"@en ;
        
        rdfs:comment "Notes regarding the cells in the DataTable"@en ;
        
@@ -776,6 +970,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 :orcidNumber rdf:type owl:DatatypeProperty ,
                       owl:FunctionalProperty ;
              
+             rdfs:label "orcidNumber"@en ;
+             
              rdfs:comment "The ORCID number of the Person" ;
              
              rdfs:domain :Person ;
@@ -788,6 +984,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :pages rdf:type owl:DatatypeProperty ,
                 owl:FunctionalProperty ;
+       
+       rdfs:label "pages"@en ;
        
        rdfs:comment "The page range for the article."@en ;
        
@@ -818,15 +1016,21 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :relevantQuote rdf:type owl:DatatypeProperty ;
                
+               rdfs:label "relevantQuote"@en ;
+               
                rdfs:comment "Relevant summary or preferably quotation from the referenced Publication" ;
                
-               rdfs:subPropertyOf :description .
+               rdfs:subPropertyOf :description ;
+               
+               rdfs:range xsd:string .
 
 
 
 ###  http://linked.earth/ontology#seasonality
 
 :seasonality rdf:type owl:DatatypeProperty ;
+             
+             rdfs:label "seasonality"@en ;
              
              rdfs:comment "fluctuating or restricted according to the season or time of year"@en ;
              
@@ -841,6 +1045,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :sensorGenus rdf:type owl:DatatypeProperty ;
              
+             rdfs:label "sensorGenus"@en ;
+             
              rdfs:comment "The Genus of the sensor" ;
              
              rdfs:domain :OrganicSensor ;
@@ -853,6 +1059,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :sensorSpecies rdf:type owl:DatatypeProperty ;
                
+               rdfs:label "sensorSpecies"@en ;
+               
                rdfs:comment "The species of the sensor" ;
                
                rdfs:domain :OrganicSensor ;
@@ -864,6 +1072,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 ###  http://linked.earth/ontology#standard
 
 :standard rdf:type owl:DatatypeProperty ;
+          
+          rdfs:label "standard"@en ;
           
           rdfs:comment "The standard against which the observations are reported (for instance, VSMOW or VPDB)"@en ;
           
@@ -891,6 +1101,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 
 :uncertaintyLevel rdf:type owl:DatatypeProperty ;
                   
+                  rdfs:label "uncertaintyLevel"@en ;
+                  
                   rdfs:comment "Quantile or number of standard deviations along a probability distribution of a Variable." ;
                   
                   rdfs:domain :Uncertainty ;
@@ -904,6 +1116,8 @@ dcterms:references rdf:type owl:ObjectProperty .
 :volume rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
         
+        rdfs:label "volume"@en ;
+        
         rdfs:comment "The volume number in which the publication appeared."@en ;
         
         rdfs:domain :Publication ;
@@ -915,6 +1129,10 @@ dcterms:references rdf:type owl:ObjectProperty .
 ###  http://linked.earth/ontology#warnings
 
 :warnings rdf:type owl:DatatypeProperty ;
+          
+          rdfs:label "warnings"@en ;
+          
+          rdfs:comment "Warnings of the variable or dataset being annotated"@en ;
           
           rdfs:domain :Dataset ,
                       :Variable ;
@@ -941,6 +1159,14 @@ dcterms:created rdf:type owl:DatatypeProperty ;
 
 
 
+###  http://purl.org/dc/terms/identifier
+
+dcterms:identifier rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:isDefinedBy "http://purl.org/dc/terms/identifier" .
+
+
+
 ###  http://purl.org/dc/terms/title
 
 dcterms:title rdf:type owl:DatatypeProperty ;
@@ -951,7 +1177,63 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 ###  http://schema.org/name
 
-<http://schema.org/name> rdf:type owl:DatatypeProperty .
+<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+                         
+                         rdfs:isDefinedBy "http://schema.org/name"@en ;
+                         
+                         rdfs:range xsd:string ;
+                         
+                         rdfs:domain owl:Thing .
+
+
+
+###  http://www.opengis.net/ont/geosparql#asWKT
+
+<http://www.opengis.net/ont/geosparql#asWKT> rdf:type owl:DatatypeProperty ;
+                                             
+                                             rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql#> ;
+                                             
+                                             rdfs:domain <http://www.opengis.net/ont/geosparql#Geometry> ;
+                                             
+                                             rdfs:range rdfs:Literal .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#alt
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#alt> rdf:type owl:DatatypeProperty ;
+                                              
+                                              rdfs:isDefinedBy "http://www.w3.org/2003/01/geo/wgs84_pos#alt"@en ;
+                                              
+                                              rdfs:range xsd:string ;
+                                              
+                                              rdfs:subPropertyOf owl:topDataProperty ;
+                                              
+                                              rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat> rdf:type owl:DatatypeProperty ;
+                                              
+                                              rdfs:isDefinedBy "http://www.w3.org/2003/01/geo/wgs84_pos#lat"@en ;
+                                              
+                                              rdfs:range xsd:string ;
+                                              
+                                              rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#long> rdf:type owl:DatatypeProperty ;
+                                               
+                                               rdfs:isDefinedBy "http://www.w3.org/2003/01/geo/wgs84_pos#long"@en ;
+                                               
+                                               rdfs:range xsd:string ;
+                                               
+                                               rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
 
 
 
@@ -968,15 +1250,19 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :Archive rdf:type owl:Class ;
          
-         rdfs:isDefinedBy "http://www.sciencedirect.com/science/article/pii/S0277379113002011" ;
+         rdfs:label "Archive"@en ;
          
-         rdfs:comment "The medium in which the response of a sensor to environmental forcing is recorded (e.g., marine sediments, ice core, lake sediments, speleothems). sensu Evans et al. (2013)"@en .
+         rdfs:comment "The medium in which the response of a sensor to environmental forcing is recorded (e.g., marine sediments, ice core, lake sediments, speleothems). Sensu Evans et al. (2013)"@en ;
+         
+         rdfs:isDefinedBy "http://www.sciencedirect.com/science/article/pii/S0277379113002011" .
 
 
 
 ###  http://linked.earth/ontology#ArchiveModel
 
 :ArchiveModel rdf:type owl:Class ;
+              
+              rdfs:label "ArchiveModel"@en ;
               
               rdfs:subClassOf :Model ;
               
@@ -990,6 +1276,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :CalibrationModel rdf:type owl:Class ;
                   
+                  rdfs:label "CalibrationModel"@en ;
+                  
                   rdfs:subClassOf :Model ;
                   
                   rdfs:comment "Metadata about how the variable was calibrated to reflect an environmental variable"@en .
@@ -999,6 +1287,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#ChronData
 
 :ChronData rdf:type owl:Class ;
+           
+           rdfs:label "CrhonData"@en ;
            
            rdfs:subClassOf :Data ;
            
@@ -1010,6 +1300,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :ChronDataTable rdf:type owl:Class ;
                 
+                rdfs:label "ChronDataTable"@en ;
+                
                 rdfs:subClassOf :DataTable ;
                 
                 rdfs:comment "DataTable containing the Chronology Variables"@en .
@@ -1019,6 +1311,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#ChronProxy
 
 :ChronProxy rdf:type owl:Class ;
+            
+            rdfs:label "ChronProxy"@en ;
             
             rdfs:subClassOf :Proxy ;
             
@@ -1030,6 +1324,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :ClimateInterpretation rdf:type owl:Class ;
                        
+                       rdfs:label "ClimateInterpretation"@en ;
+                       
                        rdfs:subClassOf :Interpretation ;
                        
                        rdfs:comment "A suite of metadata that describe how a variable is interpreted to reflect past environmental variability" .
@@ -1039,6 +1335,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#ClimateProxy
 
 :ClimateProxy rdf:type owl:Class ;
+              
+              rdfs:label "ClimateProxy"@en ;
               
               rdfs:subClassOf :Proxy ;
               
@@ -1050,6 +1348,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :Data rdf:type owl:Class ;
       
+      rdfs:label "Data"@en ;
+      
       rdfs:comment "An aggregation of DataTables and supporting information regarging the paleoenvironmental and/or chronological interpretation "@en .
 
 
@@ -1057,6 +1357,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#DataTable
 
 :DataTable rdf:type owl:Class ;
+           
+           rdfs:label "DataTable"@en ;
            
            rdfs:comment "A set of Variables organized in columns"@en .
 
@@ -1076,6 +1378,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :Funding rdf:type owl:Class ;
          
+         rdfs:label "Funding"@en ;
+         
          rdfs:comment "A source of funding for the creation of the Dataset"@en .
 
 
@@ -1083,6 +1387,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#InferredVariable
 
 :InferredVariable rdf:type owl:Class ;
+                  
+                  rdfs:label "InferredVariable"@en ;
                   
                   rdfs:subClassOf :Variable ;
                   
@@ -1096,17 +1402,21 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :InorganicSensor rdf:type owl:Class ;
                  
+                 rdfs:label "InorganicSensor"@en ;
+                 
                  rdfs:subClassOf :Sensor ;
                  
                  owl:disjointWith :OrganicSensor ;
                  
-                 rdfs:comment "Is the sensor inorganic? (e.g., karst system, catchment basin...)"@en .
+                 rdfs:comment "An inorganic senso like.karst system, catchment basin, etc."@en .
 
 
 
 ###  http://linked.earth/ontology#Instrument
 
 :Instrument rdf:type owl:Class ;
+            
+            rdfs:label "Instrument"@en ;
             
             rdfs:comment "A tool or implement used to produce MeasuredVariables"@en .
 
@@ -1115,6 +1425,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#IntegrationTime
 
 :IntegrationTime rdf:type owl:Class ;
+                 
+                 rdfs:label "IntegrationTime"@en ;
                  
                  rdfs:subClassOf :ArchiveModel ,
                                  :SensorModel ;
@@ -1127,6 +1439,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :Interpretation rdf:type owl:Class ;
                 
+                rdfs:label "Interpretation"@en ;
+                
                 rdfs:comment "A suite of metadata that describe how a variable is interpreted to reflect past variability, including environmental variability"@en .
 
 
@@ -1134,6 +1448,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#IsotopeInterpretation
 
 :IsotopeInterpretation rdf:type owl:Class ;
+                       
+                       rdfs:label "IsotopeInterpretation"@en ;
                        
                        rdfs:subClassOf :Interpretation ;
                        
@@ -1147,6 +1463,9 @@ dcterms:title rdf:type owl:DatatypeProperty ;
           
           rdfs:label "Location"@en ;
           
+          rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ,
+                          <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+          
           rdfs:comment "The geographic data and metadata for the dataset"@en .
 
 
@@ -1154,6 +1473,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#MeasuredVariable
 
 :MeasuredVariable rdf:type owl:Class ;
+                  
+                  rdfs:label "MeasuredVariable"@en ;
                   
                   rdfs:subClassOf :Variable ;
                   
@@ -1165,6 +1486,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :Model rdf:type owl:Class ;
        
+       rdfs:label "Model"@en ;
+       
        rdfs:comment "Any system that is at least partially isomorphic to some target system and used to derive information about the structure and/or dynamics of the target system."@en .
 
 
@@ -1172,6 +1495,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#NonPeerReviewedPublication
 
 :NonPeerReviewedPublication rdf:type owl:Class ;
+                            
+                            rdfs:label "NonPeerReviewedPublication"@en ;
                             
                             rdfs:subClassOf :Publication ;
                             
@@ -1185,6 +1510,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :Observation rdf:type owl:Class ;
              
+             rdfs:label "Observation"@en ;
+             
              rdfs:subClassOf :MeasuredVariable ;
              
              rdfs:comment "The measurements made on the archives, whether chemical (e.g., Mg/Ca, d18O, TEX86, Sr/Ca....), physical (e.g. density, layer thickness) or biological (e.g. species abundance). Evans et al. (2013). Observations are MeasuredVariables"@en ;
@@ -1196,6 +1523,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#ObservationModel
 
 :ObservationModel rdf:type owl:Class ;
+                  
+                  rdfs:label "ObservationModel"@en ;
                   
                   rdfs:subClassOf :Model ;
                   
@@ -1209,15 +1538,19 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :OrganicSensor rdf:type owl:Class ;
                
+               rdfs:label "OrganicSensor"@en ;
+               
                rdfs:subClassOf :Sensor ;
                
-               rdfs:comment "Is the sensor organic? (e.g., foraminifera, tree, corals...)"@en .
+               rdfs:comment "An organic sensor (e.g., foraminifera, tree, corals...)"@en .
 
 
 
 ###  http://linked.earth/ontology#PaleoData
 
 :PaleoData rdf:type owl:Class ;
+           
+           rdfs:label "PaleoData"@en ;
            
            rdfs:subClassOf :Data ;
            
@@ -1229,6 +1562,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :PaleoDataTable rdf:type owl:Class ;
                 
+                rdfs:label "PaleoDataTable"@en ;
+                
                 rdfs:subClassOf :DataTable ;
                 
                 rdfs:comment "DataTable containig PaleoData Variables"@en .
@@ -1238,6 +1573,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#PeerReviewedPublication
 
 :PeerReviewedPublication rdf:type owl:Class ;
+                         
+                         rdfs:label "PeerReviewedPublication"@en ;
                          
                          rdfs:subClassOf :Publication ;
                          
@@ -1261,6 +1598,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :Proxy rdf:type owl:Class ;
        
+       rdfs:label "Proxy"@en ;
+       
        rdfs:comment "a measured variable used to infer the value of a variable of interest"@en .
 
 
@@ -1268,6 +1607,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#ProxySystemModel
 
 :ProxySystemModel rdf:type owl:Class ;
+                  
+                  rdfs:label "ProxySystemModel"@en ;
                   
                   rdfs:subClassOf :Model ;
                   
@@ -1291,6 +1632,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :Resolution rdf:type owl:Class ;
             
+            rdfs:label "Resolution"@en ;
+            
             rdfs:comment "Refers to the distance (physical or temporal) between each point on the archive. May or May not be related to sampling. Value with units"@en .
 
 
@@ -1298,6 +1641,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#Sensor
 
 :Sensor rdf:type owl:Class ;
+        
+        rdfs:label "Sensor"@en ;
         
         rdfs:comment "The sensor comprises physical, chemical and/or biological components that react to environmental conditions (e.g, foraminifera, coral polyps, cave, catchment basin). sensu Evans et al. (2013)"@en ;
         
@@ -1308,6 +1653,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#SensorModel
 
 :SensorModel rdf:type owl:Class ;
+             
+             rdfs:label "SensorModel"@en ;
              
              rdfs:subClassOf :Model ;
              
@@ -1321,6 +1668,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :SoftwareCode rdf:type owl:Class ;
               
+              rdfs:label "SoftwareCode"@en ;
+              
               rdfs:comment "A script that describes the model, in any programming language (e.g., Excel, Matlab, Python, R)"@en .
 
 
@@ -1328,6 +1677,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 ###  http://linked.earth/ontology#Uncertainty
 
 :Uncertainty rdf:type owl:Class ;
+             
+             rdfs:label "Uncertainty"@en ;
              
              rdfs:comment "A state of incomplete knowledge that can result from a lack of information or from disagreement about what is known or  even knowable. Uncertainty may come from many sources, from imprecision in the data to ambigously defined concepts or terminology, or uncertain projections of human bahavior. Uncertainty can be represented by quantitative measures (e.g., probability density function) or by qualitative statement (e.g., reflecting the judgement of a team of experts. Sensu IPCC AR5"@en ;
              
@@ -1339,6 +1690,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :UncertaintyModel rdf:type owl:Class ;
                   
+                  rdfs:label "UndertaintyModel"@en ;
+                  
                   rdfs:subClassOf :Model ;
                   
                   rdfs:comment "A formalization of the way the uncertainty is accounted for"@en .
@@ -1349,7 +1702,33 @@ dcterms:title rdf:type owl:DatatypeProperty ;
 
 :Variable rdf:type owl:Class ;
           
+          rdfs:label "Variable"@en ;
+          
           rdfs:comment "Quantities which can be measured or inferred independently in an experiment"@en .
+
+
+
+###  http://www.opengis.net/ont/geosparql#Feature
+
+<http://www.opengis.net/ont/geosparql#Feature> rdf:type owl:Class ;
+                                               
+                                               rdfs:isDefinedBy <http://www.opengis.net/ont/geosparql> .
+
+
+
+###  http://www.opengis.net/ont/geosparql#Geometry
+
+<http://www.opengis.net/ont/geosparql#Geometry> rdf:type owl:Class ;
+                                                
+                                                rdfs:isDefinedBy <http://www.opengis.net/spec/geosparql/1.0> .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:isDefinedBy <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 
 
 
