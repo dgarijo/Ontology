@@ -47,9 +47,9 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :archivedIn rdf:type owl:ObjectProperty ;
             
-            rdfs:comment "How was the climate or chronological information encoded into the Archive?"@en ;
+            rdfs:label "archivedIn"@en ;
             
-            rdfs:isDefinedBy "archivedIn"@en ;
+            rdfs:comment "How was the climate or chronological information encoded into the Archive?"@en ;
             
             rdfs:range :Archive ;
             
@@ -81,9 +81,9 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :basedOn rdf:type owl:ObjectProperty ;
          
-         rdfs:comment "How are the data obtained?"@en ;
+         rdfs:label "basedOn"@en ;
          
-         rdfs:isDefinedBy "basedOn"@en ;
+         rdfs:comment "How are the data obtained?"@en ;
          
          rdfs:domain :Data ;
          
@@ -109,9 +109,9 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :calibratedWith rdf:type owl:ObjectProperty ;
                 
-                rdfs:comment "How was the variable calibrated to represent climate or chronology?"@en ;
+                rdfs:label "calibratedWith"@en ;
                 
-                rdfs:isDefinedBy "calibratedWith"@en ;
+                rdfs:comment "How was the variable calibrated to represent climate or chronology?"@en ;
                 
                 rdfs:range :CalibrationModel ;
                 
@@ -249,9 +249,9 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 :foundInTable rdf:type owl:ObjectProperty ;
               
-              rdfs:comment "Property that indicated the table where the described data can be found"@en ;
+              rdfs:label "foundInTable"@en ;
               
-              rdfs:isDefinedBy "foundInTable"@en ;
+              rdfs:comment "Property that indicated the table where the described data can be found"@en ;
               
               rdfs:range :DataTable ;
               
