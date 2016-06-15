@@ -91,6 +91,20 @@ rdfs:Literal owl:equivalentClass xsd:string .
 
 
 
+###  http://linked.earth/ontology#calibratedFrom
+
+:calibratedFrom rdf:type owl:ObjectProperty ;
+                
+                rdfs:label "calibratedFrom"@en ;
+                
+                rdfs:comment "Property that indicates how the measured variable was calibrated"@en ;
+                
+                rdfs:range :CalibrationModel ;
+                
+                rdfs:domain :MeasuredVariable .
+
+
+
 ###  http://linked.earth/ontology#calibratedWith
 
 :calibratedWith rdf:type owl:ObjectProperty ;
@@ -148,6 +162,86 @@ rdfs:Literal owl:equivalentClass xsd:string .
              rdfs:range :Person ;
              
              rdfs:subPropertyOf dcterms:contributor .
+
+
+
+###  http://linked.earth/ontology#foundInDistributionTable
+
+:foundInDistributionTable rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:label "foundInDistributionTable"@en ;
+                          
+                          rdfs:comment "Property that indicates that a variable or data is found in a distribution table"@en ;
+                          
+                          rdfs:range :DistributionTable ;
+                          
+                          rdfs:subPropertyOf :foundInTable ;
+                          
+                          rdfs:domain [ rdf:type owl:Class ;
+                                        owl:unionOf ( :Data
+                                                      :Variable
+                                                    )
+                                      ] .
+
+
+
+###  http://linked.earth/ontology#foundInEnsembleTable
+
+:foundInEnsembleTable rdf:type owl:ObjectProperty ;
+                      
+                      rdfs:label "foundInEnsembleTable"@en ;
+                      
+                      rdfs:comment "Property that indicates that the data or variable described was found in an ensemble table"@en ;
+                      
+                      rdfs:range :EnsembleTable ;
+                      
+                      rdfs:subPropertyOf :foundInTable ;
+                      
+                      rdfs:domain [ rdf:type owl:Class ;
+                                    owl:unionOf ( :Data
+                                                  :Variable
+                                                )
+                                  ] .
+
+
+
+###  http://linked.earth/ontology#foundInMeasurementTable
+
+:foundInMeasurementTable rdf:type owl:ObjectProperty ;
+                         
+                         rdfs:label "foundInMeasurementTable"@en ;
+                         
+                         rdfs:comment "indicates that a variable was found in a measurement table"@en ;
+                         
+                         rdfs:range :MeasurementTable ;
+                         
+                         rdfs:subPropertyOf :foundInTable ;
+                         
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( :Data
+                                                     :Variable
+                                                   )
+                                     ] .
+
+
+
+###  http://linked.earth/ontology#foundInSummaryTable
+
+:foundInSummaryTable rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:label "foundInSummaryTable"@en ;
+                     
+                     rdfs:comment "Property that indicates that the describer data or variable was found in a summary table"@en ;
+                     
+                     rdfs:range :SummaryTable ;
+                     
+                     rdfs:subPropertyOf :foundInTable ;
+                     
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( :Data
+                                                 :Variable
+                                               )
+                                 ] .
 
 
 
@@ -1304,6 +1398,8 @@ dcterms:title rdf:type owl:DatatypeProperty ;
                 
                 rdfs:subClassOf :DataTable ;
                 
+                owl:disjointWith :PaleoDataTable ;
+                
                 rdfs:comment "DataTable containing the Chronology Variables"@en .
 
 
@@ -1371,6 +1467,30 @@ dcterms:title rdf:type owl:DatatypeProperty ;
          rdfs:label "Dataset"@en ;
          
          rdfs:comment "A structured collection of related information, including - but not limited to - geographical, chronological, and paleoenvironmental data"@en .
+
+
+
+###  http://linked.earth/ontology#DistributionTable
+
+:DistributionTable rdf:type owl:Class ;
+                   
+                   rdfs:label "DistributionTable"@en ;
+                   
+                   rdfs:subClassOf :DataTable ;
+                   
+                   rdfs:comment "Table that contains the probability on the inferred variables"@en .
+
+
+
+###  http://linked.earth/ontology#EnsembleTable
+
+:EnsembleTable rdf:type owl:Class ;
+               
+               rdfs:label "EnsembleTable"@en ;
+               
+               rdfs:subClassOf :DataTable ;
+               
+               rdfs:comment "Table containing possible series of age models or proxy variability"@en .
 
 
 
@@ -1479,6 +1599,18 @@ dcterms:title rdf:type owl:DatatypeProperty ;
                   rdfs:subClassOf :Variable ;
                   
                   rdfs:comment "Is the variable measured with an instrument?"@en .
+
+
+
+###  http://linked.earth/ontology#MeasurementTable
+
+:MeasurementTable rdf:type owl:Class ;
+                  
+                  rdfs:label "MeasurementTable"@en ;
+                  
+                  rdfs:subClassOf :DataTable ;
+                  
+                  rdfs:comment "Table that contains the measuredVariables made on the Archive"@en .
 
 
 
@@ -1671,6 +1803,17 @@ dcterms:title rdf:type owl:DatatypeProperty ;
               rdfs:label "SoftwareCode"@en ;
               
               rdfs:comment "A script that describes the model, in any programming language (e.g., Excel, Matlab, Python, R)"@en .
+
+
+
+###  http://linked.earth/ontology#SummaryTable
+
+:SummaryTable rdf:type owl:Class ;
+              
+              rdfs:label "SummaryTable"@en ,
+                         "Table containing relevant statistics from the ensemble table"@en ;
+              
+              rdfs:subClassOf :DataTable .
 
 
 
