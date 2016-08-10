@@ -1,0 +1,73 @@
+{
+  "@context" : {
+    "MarineSediment" : {
+      "@id" : "http://linked.earth/ontology#MarineSediment"
+    },
+    "versionInfo" : {
+      "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "license" : {
+      "@id" : "http://purl.org/dc/terms/license"
+    },
+    "Wood" : {
+      "@id" : "http://linked.earth/ontology#Wood"
+    },
+    "GlacierIce" : {
+      "@id" : "http://linked.earth/ontology#GlacierIce"
+    },
+    "Hybrid" : {
+      "@id" : "http://linked.earth/ontology#Hybrid"
+    },
+    "Coral" : {
+      "@id" : "http://linked.earth/ontology#Coral"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "ProxyArchive" : {
+      "@id" : "http://linked.earth/ontology#ProxyArchive"
+    },
+    "MolluskShells" : {
+      "@id" : "http://linked.earth/ontology#MolluskShells"
+    },
+    "creator" : {
+      "@id" : "http://purl.org/dc/terms/creator"
+    },
+    "Peat" : {
+      "@id" : "http://linked.earth/ontology#Peat"
+    },
+    "LakeSediment" : {
+      "@id" : "http://linked.earth/ontology#LakeSediment"
+    },
+    "Rock" : {
+      "@id" : "http://linked.earth/ontology#Rock"
+    },
+    "preferredNamespacePrefix" : {
+      "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix"
+    },
+    "isDefinedBy" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+    },
+    "Speleothem" : {
+      "@id" : "http://linked.earth/ontology#Speleothem"
+    },
+    "title" : {
+      "@id" : "http://purl.org/dc/terms/title"
+    },
+    "Sclerosponge" : {
+      "@id" : "http://linked.earth/ontology#Sclerosponge"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "Document" : {
+      "@id" : "http://linked.earth/ontology#Document"
+    },
+    "contributor" : {
+      "@id" : "http://purl.org/dc/terms/contributor"
+    },
+    "preferredNamespaceUri" : {
+      "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri"
+    }
+  }
+}

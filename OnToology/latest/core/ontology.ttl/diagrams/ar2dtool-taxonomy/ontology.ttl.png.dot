@@ -1,0 +1,36 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "le:OrganicSensor" "le:Publication" "le:ClimateProxy" "le:PaleoModel" "le:PaleoDataTable" "le:EnsembleTable" "le:Location" "le:ClimateInterpretation" "le:IntegrationTime" "le:ProxySystemModel" "le:InorganicSensor" "le:PaleoData" "le:DataTable" "le:ProxySystem" "le:ChronDataTable" "le:ProxyArchiveModel" "le:IsotopeInterpretation" "le:ProxySensor" "le:PeerReviewedPublication" "le:ChronData" "le:MeasuredVariable" "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" "le:Interpretation" "le:MeasurementTable" "le:SummaryTable" "le:Data" "le:ChronProxy" "le:DistributionTable" "le:ProxySensorModel" "aa3d11a4da03310d5c91a68a42696eaf" "le:Variable" "le:Model" "le:CalibrationModel" "http://www.opengis.net/ont/geosparql#Feature" "le:ProxyObservationModel" "le:InferredVariable" "le:NonPeerReviewedPublication" "le:ChronModel" "le:UncertaintyModel" ; /*classes style*/
+	"le:InferredVariable" -> "le:Variable" [ label = "rdfs:subClassOf" ];
+	"le:ProxyObservationModel" -> "le:Model" [ label = "rdfs:subClassOf" ];
+	"le:PaleoModel" -> "le:Model" [ label = "rdfs:subClassOf" ];
+	"le:CalibrationModel" -> "le:Model" [ label = "rdfs:subClassOf" ];
+	"le:ProxyArchiveModel" -> "le:Model" [ label = "rdfs:subClassOf" ];
+	"le:NonPeerReviewedPublication" -> "le:Publication" [ label = "rdfs:subClassOf" ];
+	"le:Location" -> "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" [ label = "rdfs:subClassOf" ];
+	"le:Location" -> "http://www.opengis.net/ont/geosparql#Feature" [ label = "rdfs:subClassOf" ];
+	"le:IsotopeInterpretation" -> "le:Interpretation" [ label = "rdfs:subClassOf" ];
+	"le:ProxySystemModel" -> "le:Model" [ label = "rdfs:subClassOf" ];
+	"le:PeerReviewedPublication" -> "le:Publication" [ label = "rdfs:subClassOf" ];
+	"le:MeasuredVariable" -> "aa3d11a4da03310d5c91a68a42696eaf" [ label = "rdfs:subClassOf" ];
+	"le:EnsembleTable" -> "le:DataTable" [ label = "rdfs:subClassOf" ];
+	"le:PaleoDataTable" -> "le:DataTable" [ label = "rdfs:subClassOf" ];
+	"le:ChronData" -> "le:Data" [ label = "rdfs:subClassOf" ];
+	"le:MeasurementTable" -> "le:DataTable" [ label = "rdfs:subClassOf" ];
+	"le:ChronModel" -> "le:Model" [ label = "rdfs:subClassOf" ];
+	"le:ProxySensorModel" -> "le:Model" [ label = "rdfs:subClassOf" ];
+	"le:ClimateProxy" -> "le:ProxySystem" [ label = "rdfs:subClassOf" ];
+	"le:OrganicSensor" -> "le:ProxySensor" [ label = "rdfs:subClassOf" ];
+	"le:ChronProxy" -> "le:ProxySystem" [ label = "rdfs:subClassOf" ];
+	"le:UncertaintyModel" -> "le:Model" [ label = "rdfs:subClassOf" ];
+	"le:InorganicSensor" -> "le:ProxySensor" [ label = "rdfs:subClassOf" ];
+	"le:DistributionTable" -> "le:DataTable" [ label = "rdfs:subClassOf" ];
+	"le:IntegrationTime" -> "le:ProxySensorModel" [ label = "rdfs:subClassOf" ];
+	"le:IntegrationTime" -> "le:ProxyArchiveModel" [ label = "rdfs:subClassOf" ];
+	"le:SummaryTable" -> "le:DataTable" [ label = "rdfs:subClassOf" ];
+	"le:ChronDataTable" -> "le:DataTable" [ label = "rdfs:subClassOf" ];
+	"le:ClimateInterpretation" -> "le:Interpretation" [ label = "rdfs:subClassOf" ];
+	"le:PaleoData" -> "le:Data" [ label = "rdfs:subClassOf" ];
+
+}
