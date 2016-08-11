@@ -1,0 +1,24 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1000"
+node [shape = rectangle, color="black"]; "le:OrganicSensor" "le:Foraminifera" "le:Chironomids" "le:Karst" "le:IceSheet" "le:Snow" "le:Coccolithophores" "le:Gastropods" "le:Polyp" "le:Mollusk" "le:Ostracods" "le:Watershed" "le:Tree" "le:InorganicSensor" "le:Rock" "le:Archea" "le:Vegetation" "le:ProxySensor" "le:Bivalves" ; /*classes style*/
+	"le:Watershed" -> "le:InorganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Mollusk" -> "le:OrganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Bivalves" -> "le:Mollusk" [ label = "rdfs:subClassOf" ];
+	"le:Archea" -> "le:OrganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Chironomids" -> "le:OrganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Polyp" -> "le:OrganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Ostracods" -> "le:Mollusk" [ label = "rdfs:subClassOf" ];
+	"le:Snow" -> "le:InorganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Foraminifera" -> "le:OrganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Tree" -> "le:OrganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Vegetation" -> "le:OrganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:OrganicSensor" -> "le:ProxySensor" [ label = "rdfs:subClassOf" ];
+	"le:Gastropods" -> "le:Mollusk" [ label = "rdfs:subClassOf" ];
+	"le:InorganicSensor" -> "le:ProxySensor" [ label = "rdfs:subClassOf" ];
+	"le:Karst" -> "le:InorganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Rock" -> "le:InorganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:Coccolithophores" -> "le:OrganicSensor" [ label = "rdfs:subClassOf" ];
+	"le:IceSheet" -> "le:InorganicSensor" [ label = "rdfs:subClassOf" ];
+
+}

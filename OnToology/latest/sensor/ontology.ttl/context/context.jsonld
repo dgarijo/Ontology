@@ -1,0 +1,91 @@
+{
+  "@context" : {
+    "Polyp" : {
+      "@id" : "http://linked.earth/ontology#Polyp"
+    },
+    "Gastropods" : {
+      "@id" : "http://linked.earth/ontology#Gastropods"
+    },
+    "versionInfo" : {
+      "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "Chironomids" : {
+      "@id" : "http://linked.earth/ontology#Chironomids"
+    },
+    "InorganicSensor" : {
+      "@id" : "http://linked.earth/ontology#InorganicSensor"
+    },
+    "license" : {
+      "@id" : "http://purl.org/dc/terms/license"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "Snow" : {
+      "@id" : "http://linked.earth/ontology#Snow"
+    },
+    "Coccolithophores" : {
+      "@id" : "http://linked.earth/ontology#Coccolithophores"
+    },
+    "creator" : {
+      "@id" : "http://purl.org/dc/terms/creator"
+    },
+    "Foraminifera" : {
+      "@id" : "http://linked.earth/ontology#Foraminifera"
+    },
+    "IceSheet" : {
+      "@id" : "http://linked.earth/ontology#IceSheet"
+    },
+    "Rock" : {
+      "@id" : "http://linked.earth/ontology#Rock"
+    },
+    "preferredNamespacePrefix" : {
+      "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix"
+    },
+    "Watershed" : {
+      "@id" : "http://linked.earth/ontology#Watershed"
+    },
+    "isDefinedBy" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+    },
+    "Mollusk" : {
+      "@id" : "http://linked.earth/ontology#Mollusk"
+    },
+    "Vegetation" : {
+      "@id" : "http://linked.earth/ontology#Vegetation"
+    },
+    "title" : {
+      "@id" : "http://purl.org/dc/terms/title"
+    },
+    "Ostracods" : {
+      "@id" : "http://linked.earth/ontology#Ostracods"
+    },
+    "Tree" : {
+      "@id" : "http://linked.earth/ontology#Tree"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "Bivalves" : {
+      "@id" : "http://linked.earth/ontology#Bivalves"
+    },
+    "contributor" : {
+      "@id" : "http://purl.org/dc/terms/contributor"
+    },
+    "Karst" : {
+      "@id" : "http://linked.earth/ontology#Karst"
+    },
+    "Archea" : {
+      "@id" : "http://linked.earth/ontology#Archea"
+    },
+    "preferredNamespaceUri" : {
+      "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri"
+    },
+    "ProxySensor" : {
+      "@id" : "http://linked.earth/ontology#ProxySensor"
+    },
+    "OrganicSensor" : {
+      "@id" : "http://linked.earth/ontology#OrganicSensor"
+    }
+  }
+}
