@@ -1,0 +1,13 @@
+digraph ar2dtool_diagram { 
+rankdir=LR;
+size="1501"
+node [shape = rectangle, color="orange"]; "le:OrganicSensor" "le:InorganicSensor" ; /*classes style*/
+	"le:InorganicSensor" -> "le:OrganicSensor" [ label = "owl:disjointWith" ];
+	"le:" -> "http://www.cefns.nau.edu/~npm4/" [ label = "dcterms:creator" ];
+	"le:" -> "http://www.isi.edu/~gil/" [ label = "dcterms:contributor" ];
+	"le:" -> "http://linked.earth/ontology/sensor" [ label = "owl:versionIRI" ];
+	"le:" -> "http://orcid.org/0000-0001-5920-4751" [ label = "dcterms:creator" ];
+	"le:" -> "http://w3id.org/people/dgarijo" [ label = "dcterms:contributor" ];
+	"le:" -> "http://earth.usc.edu/~khider/" [ label = "dcterms:creator" ];
+
+}
